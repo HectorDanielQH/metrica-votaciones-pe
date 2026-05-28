@@ -154,25 +154,25 @@
                                         </div>
 
                                         <div class="absolute bottom-4 left-4 right-4">
-                                            <div class="inline-flex w-full max-w-full flex-col rounded-[1.4rem] bg-gradient-to-br from-orange-500 via-orange-500 to-amber-500 px-4 py-4 text-white shadow-[0_18px_40px_rgba(249,115,22,0.45)] ring-1 ring-orange-300/60">
-                                                <div class="flex items-center justify-between gap-3 rounded-2xl bg-white/10 px-3 py-3 border-b border-white/10">
-                                                    <span class="flex items-center gap-2 text-sm font-black uppercase tracking-[0.16em] text-sky-50">
-                                                        <i class="fas fa-user-graduate text-xs text-sky-200"></i>
+                                            <div class="inline-flex w-full max-w-full flex-col rounded-[1.4rem] bg-white/14 px-4 py-4 text-white shadow-[0_18px_40px_rgba(15,23,42,0.22)] ring-1 ring-white/20 backdrop-blur-md">
+                                                <div class="flex items-center justify-between gap-3 rounded-2xl bg-emerald-500/85 px-3 py-3 shadow-sm ring-1 ring-emerald-300/50">
+                                                    <span class="flex items-center gap-2 text-sm font-black uppercase tracking-[0.16em] text-white">
+                                                        <i class="fas fa-user-graduate text-xs text-emerald-100"></i>
                                                         Estudiantes
                                                     </span>
                                                     <span class="text-right">
                                                         <strong class="block font-mono text-2xl font-black leading-none">{{ $leaderResult->student_votes }}</strong>
-                                                        <span class="text-[0.68rem] font-bold uppercase tracking-[0.14em] text-sky-100">{{ $studentPct }}%</span>
+                                                        <span class="text-[0.68rem] font-bold uppercase tracking-[0.14em] text-emerald-50">{{ $studentPct }}%</span>
                                                     </span>
                                                 </div>
-                                                <div class="mt-3 flex items-center justify-between gap-3 rounded-2xl bg-slate-950/10 px-3 py-3">
-                                                    <span class="flex items-center gap-2 text-sm font-black uppercase tracking-[0.16em] text-emerald-50">
-                                                        <i class="fas fa-chalkboard-teacher text-xs text-emerald-200"></i>
+                                                <div class="mt-3 flex items-center justify-between gap-3 rounded-2xl bg-orange-500/90 px-3 py-3 shadow-sm ring-1 ring-orange-300/60">
+                                                    <span class="flex items-center gap-2 text-sm font-black uppercase tracking-[0.16em] text-white">
+                                                        <i class="fas fa-chalkboard-teacher text-xs text-orange-100"></i>
                                                         Docentes
                                                     </span>
                                                     <span class="text-right">
                                                         <strong class="block font-mono text-2xl font-black leading-none">{{ $leaderResult->teacher_votes }}</strong>
-                                                        <span class="text-[0.68rem] font-bold uppercase tracking-[0.14em] text-emerald-100">{{ $teacherPct }}%</span>
+                                                        <span class="text-[0.68rem] font-bold uppercase tracking-[0.14em] text-orange-50">{{ $teacherPct }}%</span>
                                                     </span>
                                                 </div>
                                             </div>
