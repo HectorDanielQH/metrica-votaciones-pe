@@ -373,15 +373,15 @@
         /* Respondent type screen */
         .respondent-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.25rem;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
             margin-top: 1rem;
         }
 
         .respondent-btn {
             border: 0;
             border-radius: 24px;
-            padding: 1.75rem 1.25rem;
+            padding: 1.25rem 0.75rem;
             text-align: center;
             transition: all 0.2s ease;
             color: #fff;
@@ -392,15 +392,15 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-            min-height: 160px;
+            min-height: 150px;
         }
 
         .respondent-btn::after {
             content: '';
             position: absolute;
             inset: auto -20px -20px auto;
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.1);
         }
@@ -422,24 +422,24 @@
         }
 
         .respondent-btn__icon {
-            font-size: 2.75rem;
-            margin-bottom: 0.75rem;
+            font-size: 2.25rem;
+            margin-bottom: 0.5rem;
             text-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
         }
 
         .respondent-btn__title {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 900;
             margin: 0 0 0.25rem;
             letter-spacing: 0.02em;
         }
 
         .respondent-btn__desc {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             opacity: 0.9;
             margin: 0;
-            max-width: 220px;
-            line-height: 1.3;
+            max-width: 100%;
+            line-height: 1.2;
         }
 
         /* Candidate list screen */
