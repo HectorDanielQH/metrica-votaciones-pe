@@ -12,15 +12,29 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('surveys', function (Blueprint $table) {
-            $table->decimal('student_vote_weight', 10, 4)->default(1)->after('is_active');
-            $table->decimal('teacher_vote_weight', 10, 4)->default(1)->after('student_vote_weight');
-        });
+        if (!Schema::hasColumn('surveys', 'student_vote_weight')) {
+            Schema::table('surveys', function (Blueprint $table) {
+                $table->decimal('student_vote_weight', 10, 4)
+                    ->default(1);
+            });
+        }
+
+        if (!Schema::hasColumn('surveys', 'teacher_vote_weight')) {
+            Schema::table('surveys', function (Blueprint $table) {
+                $table->decimal('teacher_vote_weight', 10, 4)
+                    ->default(1);
+            });
+        }
 
         DB::table('surveys')
             ->whereNull('student_vote_weight')
             ->update([
                 'student_vote_weight' => 1,
+            ]);
+
+        DB::table('surveys')
+            ->whereNull('teacher_vote_weight')
+            ->update([
                 'teacher_vote_weight' => 1,
             ]);
     }
@@ -30,11 +44,16 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('surveys', function (Blueprint $table) {
-            $table->dropColumn([
-                'student_vote_weight',
-                'teacher_vote_weight',
-            ]);
-        });
+        if (Schema::hasColumn('surveys', 'student_vote_weight')) {
+            Schema::table('surveys', function (Blueprint $table) {
+                $table->dropColumn('student_vote_weight');
+            });
+        }
+
+        if (Schema::hasColumn('surveys', 'teacher_vote_weight')) {
+            Schema::table('surveys', function (Blueprint $table) {
+                $table->dropColumn('teacher_vote_weight');
+            });
+        }
     }
 };
