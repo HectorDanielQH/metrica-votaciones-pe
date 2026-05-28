@@ -73,8 +73,7 @@
                         <div class="h-[1px] w-full bg-white/10 hidden md:block"></div>
                        <div class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
                             <i class="far fa-clock"></i>
-                            Actualizado:
-                            {{ $lastUpdatedAt ? $lastUpdatedAt->timezone('America/Lima')->format('d/m/Y H:i') : 'Sin registros' }}
+                            Actualizado: {{ now('America/Lima')->format('d/m/Y H:i:s') }}
                         </div>
                     </div>
                 @endif
