@@ -179,7 +179,7 @@ class ElectionReportService
             ? round($leader->weighted_votes - $runnerUp->weighted_votes, 4)
             : ($leader?->weighted_votes ?? 0);
 
-        $targetCandidateName = 'Dante Salas';
+        $targetCandidateName = 'Dante Salas Avila';
         $targetCandidateResult = $candidateResults->first(function ($result) use ($targetCandidateName) {
             return mb_strtolower((string) $result->primary_candidate_name) === mb_strtolower($targetCandidateName);
         });
@@ -533,7 +533,7 @@ class ElectionReportService
             'teacherShare' => 0,
             'insights' => collect(),
             'actions' => collect(),
-            'targetCandidateName' => 'Dante Salas',
+            'targetCandidateName' => 'Dante Salas Avila',
             'targetCandidateResult' => null,
             'targetCandidateGap' => null,
             'surveyorOptions' => collect(),
