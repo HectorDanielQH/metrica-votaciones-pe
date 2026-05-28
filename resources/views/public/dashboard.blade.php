@@ -71,8 +71,10 @@
                             <span class="text-sm font-bold text-slate-200">{{ $activeSurvey->name }}</span>
                         </div>
                         <div class="h-[1px] w-full bg-white/10 hidden md:block"></div>
-                        <div class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
-                            <i class="far fa-clock"></i> Actualizado: {{ optional($lastUpdatedAt)->format('d/m/Y H:i') ?? 'Sin registros' }}
+                       <div class="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
+                            <i class="far fa-clock"></i>
+                            Actualizado:
+                            {{ $lastUpdatedAt ? $lastUpdatedAt->timezone('America/Lima')->format('d/m/Y H:i') : 'Sin registros' }}
                         </div>
                     </div>
                 @endif
