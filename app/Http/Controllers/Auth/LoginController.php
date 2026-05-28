@@ -25,8 +25,6 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
-
     /**
      * Create a new controller instance.
      *
@@ -36,5 +34,27 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
         $this->middleware('auth')->only('logout');
+    }
+
+    /**
+     * Get the post login redirect path.
+     */
+    protected function redirectTo(): string
+    {
+        $user = auth()->user();
+
+        if ($user?->hasRole('administrador')) {
+            return route('admin.dashboard');
+        }
+
+        if ($user?->hasRole('encuestador')) {
+            return route('surveyor.votes.create');
+        }
+
+        if ($user?->hasRole('veedor') || $user?->hasRole('observador')) {
+            return route('observer.dashboard');
+        }
+
+        return route('home');
     }
 }

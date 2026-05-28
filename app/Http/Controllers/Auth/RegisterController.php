@@ -28,8 +28,6 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
-
     /**
      * Create a new controller instance.
      *
@@ -66,5 +64,13 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    /**
+     * Get the post registration redirect path.
+     */
+    protected function redirectTo(): string
+    {
+        return route('home');
     }
 }

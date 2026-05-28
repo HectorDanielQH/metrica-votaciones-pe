@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Metrica Educativa',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -31,7 +31,7 @@ return [
     */
 
     'use_ico_only' => false,
-    'use_full_favicon' => false,
+    'use_full_favicon' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -63,12 +63,12 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Metrica</b> Educativa',
+    'logo_img' => 'images/met-ed.webp',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Admin Logo',
+    'logo_img_alt' => 'Metrica Educativa',
 
     /*
     |--------------------------------------------------------------------------
@@ -86,8 +86,8 @@ return [
     'auth_logo' => [
         'enabled' => false,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'Auth Logo',
+            'path' => 'images/sin_fondo.webp',
+            'alt' => 'Metrica Educativa',
             'class' => '',
             'width' => 50,
             'height' => 50,
@@ -113,11 +113,11 @@ return [
         'enabled' => true,
         'mode' => 'fullscreen',
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'AdminLTE Preloader Image',
+            'path' => 'images/sin_fondo.webp',
+            'alt' => 'Metrica Educativa',
             'effect' => 'animation__shake',
-            'width' => 60,
-            'height' => 60,
+            'width' => 200,
+            'height' => 200,
         ],
     ],
 
@@ -257,10 +257,10 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin',
     'logout_url' => 'logout',
-    'login_url' => 'login',
-    'register_url' => 'register',
+    'login_url' => 'acceso-interno',
+    'register_url' => false,
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
     'profile_url' => false,
@@ -301,96 +301,58 @@ return [
     'menu' => [
         // Navbar items:
         [
-            'type' => 'navbar-search',
-            'text' => 'search',
-            'topnav_right' => true,
-        ],
-        [
             'type' => 'fullscreen-widget',
             'topnav_right' => true,
         ],
-
-        // Sidebar items:
+        ['header' => 'Panel Administrativo'],
         [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        [
-            'text' => 'blog',
-            'url' => 'admin/blog',
-            'can' => 'manage-blog',
-        ],
-        [
-            'text' => 'pages',
-            'url' => 'admin/pages',
-            'icon' => 'far fa-fw fa-file',
-            'label' => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text' => 'multilevel',
-            'icon' => 'fas fa-fw fa-share',
+            'text' => 'Usuarios y Permisos',
+            'icon' => 'fas fa-fw fa-user-shield',
+            'can' => 'users.view',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
+                    'text' => 'Usuarios',
+                    'url' => 'admin/usuarios',
+                    'icon' => 'fas fa-fw fa-users',
+                    'can' => 'users.view',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text' => 'Roles',
+                    'url' => 'admin/roles',
+                    'icon' => 'fas fa-fw fa-user-tag',
+                    'can' => 'roles.view',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
+                    'text' => 'Permisos',
+                    'url' => 'admin/permisos',
+                    'icon' => 'fas fa-fw fa-key',
+                    'can' => 'permissions.view',
                 ],
             ],
         ],
-        ['header' => 'labels'],
         [
-            'text' => 'important',
-            'icon_color' => 'red',
-            'url' => '#',
+            'text' => 'Dashboard',
+            'url' => 'admin',
+            'icon' => 'fas fa-fw fa-tachometer-alt',
+            'can' => 'users.view',
         ],
         [
-            'text' => 'warning',
-            'icon_color' => 'yellow',
-            'url' => '#',
+            'text' => 'Candidaturas',
+            'url' => 'admin/candidaturas',
+            'icon' => 'fas fa-fw fa-flag',
+            'can' => 'users.view',
         ],
         [
-            'text' => 'information',
-            'icon_color' => 'cyan',
-            'url' => '#',
+            'text' => 'Encuestas',
+            'url' => 'admin/encuestas',
+            'icon' => 'fas fa-fw fa-poll-h',
+            'can' => 'users.view',
+        ],
+        [
+            'text' => 'Reportes Operativos',
+            'url' => 'admin/reportes',
+            'icon' => 'fas fa-fw fa-chart-bar',
+            'can' => 'users.view',
         ],
     ],
 
@@ -465,12 +427,12 @@ return [
             ],
         ],
         'Chartjs' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
+                    'location' => '//cdn.jsdelivr.net/npm/chart.js',
                 ],
             ],
         ],
