@@ -83,6 +83,7 @@ class ElectionReportService
                     'party_name' => $candidacy?->party_name,
                     'party_logo_path' => $candidacy?->party_logo_path,
                     'primary_candidate_name' => $candidacy?->primary_candidate_name,
+                    'primary_candidate_photo_path' => $candidacy?->primary_candidate_photo_path,
                     'secondary_candidate_name' => $candidacy?->secondary_candidate_name,
                     'student_votes' => $studentVotes,
                     'teacher_votes' => $teacherVotes,
